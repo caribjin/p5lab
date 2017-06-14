@@ -1,7 +1,7 @@
-var total = 50000;
+var total = 100000;
 var circles = [];
-var maxx = 500;
-var maxy = 600;
+var maxx = 1000;
+var maxy = 800;
 var fps = 30;
 var updateTime = 1000/fps;
 var circleRadius = 2;
@@ -9,8 +9,8 @@ var lastLoop = new Date();
 var count = 0;
 
 function setup() {
-  frameRate(fps);
-	// noLoop();
+  // frameRate(fps);
+	noLoop();
 	createCanvas(maxx, maxy);
 	textSize(20);
 
@@ -23,7 +23,7 @@ function draw() {
 	var before = new Date();
 	drawCircle();
 	var after = new Date();
-	console.log('draw spend: ' + circles.length + ' - ' + ((after - before) / 1000));
+	console.log('draw spend: ' + circles.length + ' - ' + (after - before) + 'ms');
 }
 
 function mousePressed() {

@@ -1,7 +1,7 @@
-var total = 500;
+var total = 10000;
 var circles = [];
-var maxx = 500;
-var maxy = 600;
+var maxx = 1000;
+var maxy = 800;
 var fps = 60;
 var updateTime = 1000/fps;
 var circleRadius = 10;
@@ -19,7 +19,11 @@ function setup() {
 }
 
 function draw() {
+	var before = new Date();
 	drawCircle();
+	var after = new Date();
+	console.log('draw spend: ' + circles.length + ' - ' + (after - before) + 'ms');
+
 }
 
 function mousePressed() {
