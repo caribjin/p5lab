@@ -1,0 +1,33 @@
+{
+  "disallowTrailingWhitespace": false,
+  
+  "disallowSpacesInFunctionExpression": {
+    "beforeOpeningRoundBrace": true
+  },
+  
+  "requireTrailingComma": false,
+  
+  "requireSpacesInAnonymousFunctionExpression": {
+    "beforeOpeningCurlyBrace": true
+  },
+  
+  "maxErrors": 1000,
+  
+  "maximumLineLength": {
+    "value": 300,
+    "tabSize": 0,
+    "allExcept": [
+      "regex",
+      "comments",
+      "urlComments",
+      "functionSignature",
+      "require"
+    ]
+  },
+  
+  "safeContextKeyword": [
+    "me",
+    "self",
+    "_this"
+  ]
+}
