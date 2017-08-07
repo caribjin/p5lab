@@ -3,14 +3,12 @@ var circles = [];
 var maxx = 1000;
 var maxy = 800;
 var fps = 30;
-var updateTime = 1000/fps;
-var circleRadius = 2;
-var lastLoop = new Date();
+var circleRadius = 5;
 var count = 0;
 
 function setup() {
   // frameRate(fps);
-	noLoop();
+  // noLoop();
 	createCanvas(maxx, maxy);
 	textSize(20);
 
@@ -36,13 +34,15 @@ function mousePressed() {
 	}
 }
 
-function calcFPS() {
-	var thisLoop = new Date();
-	var fps = 1000 / (thisLoop - lastLoop);
-	lastLoop = thisLoop;
-	count += fps;
-
-	return ((count / frameCount).toFixed(1));
+function displayFPS() {
+  push();
+  fill(0);
+  rect(0, 0, 110, 30);
+  fill('#00FF00');
+  textSize(15);
+  textStyle(BOLD);
+  text('FPS: ' + frameRate().toFixed(2), 20, 20);
+  pop();
 }
 
 function drawCircle(x, radius, level) {
@@ -53,8 +53,7 @@ function drawCircle(x, radius, level) {
 		c.display();
 	});
 
-	fill('#000');
-	text('FPS: ' + calcFPS(), 10, 30);
+	displayFPS();
 }
 
 function Circle(id) {

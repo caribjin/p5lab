@@ -3,9 +3,7 @@ var circles = [];
 var maxx = 500;
 var maxy = 600;
 var fps = 60;
-var updateTime = 1000/fps;
 var circleRadius = 10;
-var lastLoop = new Date();
 var count = 0;
 
 function setup() {
@@ -20,15 +18,18 @@ function setup() {
 
 function draw() {
 	drawCircle();
+	displayFPS();
 }
 
-function calcFPS() {
-	var thisLoop = new Date();
-	var fps = 1000 / (thisLoop - lastLoop);
-	lastLoop = thisLoop;
-	count += fps;
-
-	return ((count / frameCount).toFixed(1));
+function displayFPS() {
+  push();
+  fill(0);
+  rect(0, 0, 110, 30);
+  fill('#00FF00');
+  textSize(15);
+  textStyle(BOLD);
+  text('FPS: ' + frameRate().toFixed(2), 20, 20);
+  pop();
 }
 
 function drawCircle(x, radius, level) {
@@ -38,8 +39,6 @@ function drawCircle(x, radius, level) {
 	circles.map(function(c) {
 		c.display();
 	});
-
-	text('FPS: ' + calcFPS(), 10, 30);
 }
 
 function Circle(id) {
